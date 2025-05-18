@@ -1,14 +1,5 @@
 #!/usr/bin/python3
-
-"""
-Using a number n, we can use a method that calculates the fewest # of operations.
-
-Prototype: def minOperations(n)
-Return an integer
-If n is not found or impossible to reach, returns 0
-"""
-
-
+"""Sample steps using a loop"""
 def minOperations(n):
     if n <= 1:
         return 0
