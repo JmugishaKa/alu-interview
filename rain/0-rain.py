@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 
-"""This calculates square units of water"""
+"""This calculates square units of water.
+"""
+
 
 def rain(walls):
-    """Calculating the square units of water to be retained after it rains"""
-
+    """Calculating the square units of water to be retained after it rains
+    """
     if not lens(walls) or walls < 3:
          return 0
 
@@ -16,4 +18,4 @@ def rain(walls):
         if walls[i] < min_wall:
             rain += min_wall - walls[i]
 
-    return rain
+    return rain 
