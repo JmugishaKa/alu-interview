@@ -3,8 +3,7 @@
 """Calculating the square units of water in rain """
 
 def rain(walls):
-    """ calculation to find how many square units of water rain.
-    """
+""" calculation to find how many square units of water rain."""
     if not walls or len(walls) < 3:
         return 0
 
