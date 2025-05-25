@@ -1,17 +1,32 @@
 #!/usr/bin/python3
+"""
+Rain
+"""
 
-"""Calculating the square units of water in rain """
 
 def rain(walls):
-""" calculation to find how many square units of water rain."""
-    if not walls or len(walls) < 3:
+    """
+    This program calculates the amount
+    of rainwater that can be retained
+    after it rains
+    """
+    if not walls:
         return 0
 
-    rain = 0
-    for i in range(1, len(walls) - 1):
-        left = max(walls[:i])
-        right = max(walls[i + 1:])
-        min_wall = min(left, right)
-        if walls[i] < min_wall:
-            rain += min_wall - walls[i]
-    return rain
+    total_water = 0
+    left_max = [0] * len(walls)
+    right_max = [0] * len(walls)
+
+    left_max[0] = walls[0]
+    for i in range(1, len(walls)):
+        left_max[i] = max(left_max[i-1], walls[i])
+
+    right_max[-1] = walls[-1]
+    for i in range(len(walls)-2, -1, -1):
+        right_max[i] = max(right_max[i+1], walls[i])
+
+    for i in range(len(walls)):
+        water_height = min(left_max[i], right_max[i]) - walls[i]
+        total_water += water_height
+
+    return total_water
